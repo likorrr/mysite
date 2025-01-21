@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,34 +6,61 @@
 </head>
    <body>
       <div class="container">
-         <h1 class="mt-5 mb-5" alt="center">Переводчик</h1>
+         <h3 alt="center">Переводчик</h3>
          <form method="POST" action="{% url 'home' %}">
             {% csrf_token %}
             <div class="form-row mt-4">
                <div class="col">
-                  <textarea name="txt" class="form-control" placeholder="Введите текст" rows="5" required="required"></textarea>
+                  <textarea name="txt" class="form-control input-group-lg" placeholder="Введите текст" rows="5" required="required"></textarea>
                </div>
                <br>
                <div class="col">
                   <select class="form-control" name="lang">
-                            <option celected value="en">Английский</option>
+                            <option value="en" selected>Английский</option>
                             <option value="ru">Русский</option>
-                            <option value="en">Английский</option>
-                            <option value="en">Китайский</option>
-                            <option value="en">Японский</option>
+                            <option value="zh">Китайский</option>
+                            <option value="ja">Японский</option>
                             <option value="de">Немецкий</option>
-                            <option value="en">Французский</option>
+                            <option value="fr">Французский</option>
                             <option value="ar">Арабский</option>
                             <option value="es">Испанский</option>
-                            <option value="en">Португальский</option>
+                            <option value="pt">Португальский</option>
                         </select>
                     </div>
                  </div>
                  <button type="submit" class="btn btn-primary mt-2">Перевести</button>
               </form>
-              <p class="mt-4">{{result}}</p>
+               <h3>Перевод:</h3>
+               <p class="block text-lower mt-4">{{result}}</p>
      
            </div>
-        </body>
-     </html>
+           <style>
+            .text {
+               font-size: 30px;
+            }
 
+            .block {
+               background-color: rgb(234, 252, 252);
+               border: 1px solid rgb(129, 129, 129);
+               border-radius: 5px;
+               padding: 10px 20px;
+            }
+
+            .text-lower {
+               font-size: 20px;
+            }
+
+
+            @media(max-width: 760px) {
+               
+               .text {
+                  font-size: 70px;
+               }
+
+               .container {
+                  margin: 10px;
+               }
+            }
+           </style>
+         </body>
+     </html>
